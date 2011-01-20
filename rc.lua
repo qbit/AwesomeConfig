@@ -15,6 +15,7 @@
 require("awful")
 require("awful.rules")
 require("awful.autofocus")
+
 -- User libraries
 require("vicious")
 require("scratch")
@@ -47,7 +48,7 @@ layouts = {
 
 -- {{{ Tags
 tags = {
-  names  = { "term", "web", "im", "mail", "win", 6, 7, "rss", "media" },
+  names  = { "term", "web", "chat", "mail", "win", 6, 7, "rss", "media" },
   layout = { layouts[2], layouts[1], layouts[1], layouts[4], layouts[1],
              layouts[6], layouts[6], layouts[5], layouts[6]
 }}
@@ -147,19 +148,6 @@ dnicon = widget({ type = "imagebox" })
 upicon = widget({ type = "imagebox" })
 dnicon.image = image(beautiful.widget_net)
 upicon.image = image(beautiful.widget_netup)
--- Initialize widget
---netwidget = widget({ type = "textbox" })
---wifiwidget = widget({ type = "textbox" })
--- Register widget
---vicious.register(netwidget, vicious.widgets.net, '<span color="'
---  .. beautiful.fg_netdn_widget ..'">${eth0 down_kb}</span> <span color="'
---  .. beautiful.fg_netup_widget ..'">${eth0 up_kb}</span>', 3)
----- }}}
---
---vicious.register(wifiwidget, vicious.widgets.net, '<span color="'
---  .. beautiful.fg_netdn_widget ..'">${wlan0 down_kb}</span> <span color="'
---  .. beautiful.fg_netup_widget ..'">${wlan0 up_kb}</span>', 3)
--- }}}
 
 -- {{{ Mail subject
 mailicon = widget({ type = "imagebox" })
