@@ -155,7 +155,7 @@ mailicon.image = image(beautiful.widget_mail)
 -- Initialize widget
 mailwidget = widget({ type = "textbox" })
 -- Register widget
-vicious.register(mailwidget, vicious.widgets.mbox, "$1", 181, { "/var/mail/" .. user, 15})
+vicious.register(mailwidget, vicious.widgets.mdir, "$1", 181, { "/home/" .. user .. "/Maildir", 15})
 -- Register buttons
 mailwidget:buttons(awful.util.table.join(
   --awful.button({ }, 1, function () exec("urxvt -T Alpine -e alpine.exp") end)
