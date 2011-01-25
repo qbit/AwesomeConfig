@@ -49,7 +49,7 @@ layouts = {
 -- {{{ Tags
 tags = {
   names  = { "term", "web", "chat", "mail", "win", 6, 7, "rss", "media" },
-  layout = { layouts[1], layouts[1], layouts[1], layouts[4], layouts[1],
+  layout = { layouts[1], layouts[1], layouts[1], layouts[4], layouts[6],
              layouts[6], layouts[6], layouts[5], layouts[6]
 }}
 
