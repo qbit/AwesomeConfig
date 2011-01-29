@@ -470,9 +470,11 @@ awful.rules.rules = {
       border_width = beautiful.border_width,
       border_color = beautiful.border_normal }
     },
-    { rule = { class = "Google Chrome",  instance = "Chrome" },
-      properties = { tag = tags[1][3] } },
+    { rule = { class = "Google-chrome",  instance = "google-chrome" },
+      properties = { tag = tags[1][2] } },
     { rule = { class = "Firefox",  instance = "Navigator" },
+      properties = { tag = tags[1][2] } },
+    { rule = { class = "Pidgin",  instance = "Pidgin" },
       properties = { tag = tags[1][3] } },
     { rule = { class = "Xmessage", instance = "xmessage" },
       properties = { floating = true }, callback = awful.titlebar.add  },
