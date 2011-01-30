@@ -11,8 +11,8 @@ theme.font      = "Profont 8"
 
 -- {{{ Colors
 --theme.fg_normal = "#cfbfad"
-theme.fg_normal = "#cfbfad"
-theme.fg_focus  = "#F0DFAF"
+theme.fg_normal = "#8cd0d3"
+theme.fg_focus  = "#cd8b00"
 theme.fg_urgent = "#CC9393"
 --theme.bg_normal = "#3F3F3F"
 theme.bg_normal = "#1e1e27"
