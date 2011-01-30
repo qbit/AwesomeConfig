@@ -34,10 +34,20 @@ theme.titlebar_bg_normal = theme.bg_normal
 -- }}}
 
 -- {{{ Widgets
-theme.fg_widget        = "#AECF96"
-theme.fg_center_widget = "#88A175"
-theme.fg_end_widget    = "#FF5656"
-theme.fg_off_widget    = "#494B4F"
+--theme.fg_widget        = "#AECF96"
+--theme.fg_widget        = "#513069"
+theme.fg_widget        = "#B6B4B0"
+--theme.fg_center_widget = "#88A175"
+--theme.fg_center_widget = "#775E8A"
+theme.fg_center_widget = "#00A9A9"
+--theme.fg_end_widget    = "#FF5656"
+--theme.fg_end_widget    = "#00A9A9"
+theme.fg_end_widget    = "#775e8a"
+--theme.fg_off_widget    = "#494B4F"
+--theme.fg_off_widget    = "#B6B4B0"
+theme.fg_off_widget    = "#513069"
+
+
 theme.fg_netup_widget  = "#7F9F7F"
 theme.fg_netdn_widget  = theme.fg_urgent
 theme.bg_widget        = theme.bg_normal
