@@ -79,7 +79,7 @@ cpuicon.image = image(beautiful.widget_cpu)
 cpugraph  = awful.widget.graph()
 -- Graph properties
 cpugraph:set_width(40):set_height(14)
-cpugraph:set_background_color(beautiful.fg_off_widget)
+cpugraph:set_background_color(beautiful.bg_widget)
 cpugraph:set_gradient_angle(0):set_gradient_colors({
    beautiful.fg_end_widget, beautiful.fg_center_widget, beautiful.fg_widget
 }) -- Register widgets
@@ -106,7 +106,7 @@ membar = awful.widget.progressbar()
 -- Pogressbar properties
 membar:set_vertical(true):set_ticks(true)
 membar:set_height(12):set_width(8):set_ticks_size(2)
-membar:set_background_color(beautiful.fg_off_widget)
+membar:set_background_color(beautiful.bg_widget)
 membar:set_gradient_colors({ beautiful.fg_widget,
    beautiful.fg_center_widget, beautiful.fg_end_widget
 }) -- Register widget
@@ -126,7 +126,7 @@ for _, w in pairs(fs) do
   w:set_vertical(true):set_ticks(true)
   w:set_height(14):set_width(5):set_ticks_size(2)
   w:set_border_color(beautiful.border_widget)
-  w:set_background_color(beautiful.fg_off_widget)
+  w:set_background_color(beautiful.bg_widget)
   w:set_gradient_colors({ beautiful.fg_widget,
      beautiful.fg_center_widget, beautiful.fg_end_widget
   }) -- Register buttons
@@ -199,7 +199,7 @@ volwidget = widget({ type = "textbox" })
 -- Progressbar properties
 volbar:set_vertical(true):set_ticks(true)
 volbar:set_height(12):set_width(8):set_ticks_size(2)
-volbar:set_background_color(beautiful.fg_off_widget)
+volbar:set_background_color(beautiful.bg_widget)
 volbar:set_gradient_colors({ beautiful.fg_widget,
    beautiful.fg_center_widget, beautiful.fg_end_widget
 }) -- Enable caching

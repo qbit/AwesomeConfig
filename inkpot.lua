@@ -36,6 +36,7 @@ theme.titlebar_bg_normal = theme.bg_normal
 -- {{{ Widgets
 --theme.fg_widget        = "#AECF96"
 --theme.fg_widget        = "#513069"
+theme.bg_widget		   = "#fdd090"
 theme.fg_widget        = "#B6B4B0"
 --theme.fg_center_widget = "#88A175"
 --theme.fg_center_widget = "#775E8A"
