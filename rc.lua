@@ -482,6 +482,7 @@ awful.rules.rules = {
       properties = { floating = true }, callback = awful.titlebar.add  },
     { rule = { name  = "Mail" },      properties = { tag = tags[1][4]} },
     { rule = { class = "Pinentry.*" },  properties = { floating = true } },
+    { rule = { class = "MPlayer" },  properties = { floating = true } },
 }
 -- }}}
 
