@@ -23,7 +23,7 @@ require("scratch")
 
 
 -- {{{ Variable definitions
-local altkey = "Mod4"
+--local altkey = "Mod1"
 local modkey = "Mod1"
 
 local home   = os.getenv("HOME")
@@ -48,16 +48,15 @@ layouts = {
 
 -- {{{ Tags
 tags = {
-  names  = { "term", "web", "chat", "mail", "win", 6, 7, "rss", "media" },
+  names  = { "term", "web", "chat", "mail", "win", "rss", "media", "misc" },
   layout = { layouts[1], layouts[1], layouts[1], layouts[4], layouts[6],
-             layouts[6], layouts[6], layouts[5], layouts[6]
+             layouts[5], layouts[6], layouts[1]
 }}
 
 for s = 1, screen.count() do
   tags[s] = awful.tag(tags.names, s, tags.layout)
   for i, t in ipairs(tags[s]) do
       awful.tag.setproperty(t, "mwfact", i==5 and 0.13  or  0.5)
-      awful.tag.setproperty(t, "hide",  (i==6 or  i==7) and true)
   end
 end
 -- }}}
@@ -316,47 +315,13 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "m", function () exec("icedove") end),
     awful.key({ modkey }, "Return",  function () exec("urxvt") end),
     awful.key({ modkey }, "a", function () exec("urxvt -T Mail -e mutt") end),
+    awful.key({ modkey }, "r", function () exec("urxvt -T RSS -e canto") end),
     -- }}}
 
-    -- {{{ Prompt menus
-    awful.key({ altkey }, "F2", function ()
-        awful.prompt.run({ prompt = "Run: " }, promptbox[mouse.screen].widget,
-            function (...) promptbox[mouse.screen].text = exec(unpack(arg), false) end,
-            awful.completion.shell, awful.util.getdir("cache") .. "/history")
-    end),
-    awful.key({ altkey }, "F3", function ()
-        awful.prompt.run({ prompt = "Dictionary: " }, promptbox[mouse.screen].widget,
-            function (words)
-                sexec("crodict "..words.." | ".."xmessage -timeout 10 -file -")
-            end)
-    end),
-    awful.key({ altkey }, "F4", function ()
-        awful.prompt.run({ prompt = "Web: " }, promptbox[mouse.screen].widget,
-            function (command)
-                sexec("google-chrome 'http://yubnub.org/parser/parse?command="..command.."'")
-                awful.tag.viewonly(tags[1][3])
-            end)
-    end),
-    awful.key({ altkey }, "F5", function ()
-        awful.prompt.run({ prompt = "Lua: " }, promptbox[mouse.screen].widget,
-        awful.util.eval, nil, awful.util.getdir("cache") .. "/history_eval")
-    end),
-    -- }}}
-
-    -- {{{ Awesome controls
-    --awful.key({ modkey }, "b", function ()
-    --    wibox[mouse.screen].visible = not wibox[mouse.screen].visible
-    --end),
     awful.key({ modkey, "Shift" }, "q", awesome.quit),
     awful.key({ modkey, "Shift" }, "r", function ()
         promptbox[mouse.screen].text = awful.util.escape(awful.util.restart())
     end),
-    -- }}}
-
-    -- {{{ Tag browsing
-    --awful.key({ altkey }, "n",   awful.tag.viewnext),
-    --awful.key({ altkey }, "p",   awful.tag.viewprev),
-    awful.key({ altkey }, "Tab", awful.tag.history.restore),
     -- }}}
 
     -- {{{ Layout manipulation
@@ -384,10 +349,7 @@ globalkeys = awful.util.table.join(
         awful.client.focus.history.previous()
         if client.focus then client.focus:raise() end
     end),
-    awful.key({ altkey }, "Escape", function ()
-        awful.menu.menu_keys.down = { "Down", "Alt_L" }
-        local cmenu = awful.menu.clients({width=230}, { keygrabber=true, coords={x=525, y=330} })
-    end),
+
     awful.key({ modkey, "Shift" }, "j", function () awful.client.swap.byidx(1)  end),
     awful.key({ modkey, "Shift" }, "k", function () awful.client.swap.byidx(-1) end)
     -- }}}
@@ -429,7 +391,7 @@ clientkeys = awful.util.table.join(
 -- {{{ Keyboard digits
 local keynumber = 0
 for s = 1, screen.count() do
-   keynumber = math.min(9, math.max(#tags[s], keynumber));
+		keynumber = math.min( 9, math.max( #tags[s], keynumber ));
 end
 -- }}}
 
@@ -480,8 +442,9 @@ awful.rules.rules = {
       properties = { floating = true }, callback = awful.titlebar.add  },
     { rule = { instance = "firefox-bin" },
       properties = { floating = true }, callback = awful.titlebar.add  },
+    { rule = { instance = "display" }, properties = { floating = true } },
     { rule = { name  = "Mail" },      properties = { tag = tags[1][4]} },
-    { rule = { class = "Pinentry.*" },  properties = { floating = true } },
+    { rule = { name  = "RSS" },      properties = { tag = tags[1][6]} },
     { rule = { class = "MPlayer" },  properties = { floating = true } },
 }
 -- }}}
